@@ -2,6 +2,7 @@ package com.emmanueliyke.weatherplus.data.remote.mapper
 
 import com.emmanueliyke.weatherplus.data.local.entries.CityWeatherEntity
 import com.emmanueliyke.weatherplus.data.remote.dto.WeatherResponseDto
+import com.emmanueliyke.weatherplus.domain.model.CityWeather
 
 
 fun WeatherResponseDto.toEntity(isFavorite: Boolean = false): CityWeatherEntity =
@@ -18,4 +19,22 @@ fun WeatherResponseDto.toEntity(isFavorite: Boolean = false): CityWeatherEntity 
         visibility = visibility,
         pressure = main.pressure,
         isFavorite = isFavorite
+    )
+
+
+fun CityWeatherEntity.toDomain(): CityWeather =
+    CityWeather(
+        cityId = cityId,
+        name = name,
+        country = country,
+        tempCelsius = tempCelsius,
+        feelsLike = feelsLike,
+        humidity = humidity,
+        description = description,
+        iconCode = iconCode,
+        windSpeed = windSpeed,
+        visibility = visibility,
+        pressure = pressure,
+        isFavorite = isFavorite,
+        lastUpdated = lastUpdated
     )
