@@ -36,4 +36,10 @@ data class CityWeather(
 
     val pressureDisplay: String
         get() = "$pressure hPa"
+
+    val lastUpdatedDisplay: String
+        get() {
+            val sdf = java.text.SimpleDateFormat("hh:mm a", java.util.Locale.getDefault())
+            return sdf.format(java.util.Date(lastUpdated))
+        }
 }

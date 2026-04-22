@@ -1,5 +1,7 @@
 package com.emmanueliyke.weatherplus.data.remote.api
 
+import com.emmanueliyke.weatherplus.BuildConfig
+
 object CityConstants {
 
     val CITY_IDS = listOf(

@@ -1,5 +1,6 @@
 package com.emmanueliyke.weatherplus.di
 
+import com.emmanueliyke.weatherplus.BuildConfig
 import com.emmanueliyke.weatherplus.data.remote.api.WeatherApiService
 import dagger.Binds
 import dagger.Module
