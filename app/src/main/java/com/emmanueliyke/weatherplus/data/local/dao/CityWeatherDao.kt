@@ -23,4 +23,7 @@ interface CityWeatherDao {
 
     @Query("UPDATE cities SET isFavorite = :isFavorite WHERE cityId = :cityId")
     suspend fun setFavorite(cityId: Int, isFavorite: Boolean)
+
+    @Query("SELECT cityId FROM cities WHERE isFavorite = 1")
+    suspend fun getFavoriteCityIds(): List<Int>
 }
