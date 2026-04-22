@@ -3,6 +3,8 @@ package com.emmanueliyke.weatherplus.di
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.emmanueliyke.weatherplus.data.local.dao.CityWeatherDao
+import com.emmanueliyke.weatherplus.data.local.database.WeatherDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.android.qualifiers.ApplicationContext

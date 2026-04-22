@@ -1,5 +1,7 @@
 package com.emmanueliyke.weatherplus.di
 
+import com.emmanueliyke.weatherplus.data.repository.WeatherRepositoryImpl
+import com.emmanueliyke.weatherplus.domain.repository.WeatherRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
