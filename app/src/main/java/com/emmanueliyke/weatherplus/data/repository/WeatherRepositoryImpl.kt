@@ -22,28 +22,23 @@ class WeatherRepositoryImpl @Inject constructor(
         }
 
     override suspend fun refreshCities(): Result<Unit> = runCatching {
-        // 1. Fetch fresh data from API
         val response = api.getCitiesWeather(
             ids = CityConstants.CITY_IDS_PARAM,
             apiKey = CityConstants.API_KEY
         )
 
-        // 2. Get current favorites from Room so we don't reset them on refresh
         val currentFavorites = dao.observeAll()
             .map { it.filter { entity -> entity.isFavorite }.map { entity -> entity.cityId } }
             .let { flow ->
-                // Collect just the current snapshot — not a subscription
                 var result = emptyList<Int>()
                 flow.collect { result = it }
                 result
             }
 
-        // 3. Map DTOs to entities, preserving favorite state
         val entities = response.list.map { dto ->
             dto.toEntity(isFavorite = dto.id in currentFavorites)
         }
 
-        // 4. Upsert into Room — UI updates automatically via observeCities()
         dao.upsertAll(entities)
     }
 
