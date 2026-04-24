@@ -9,8 +9,20 @@ background notifications.
 
 ## 📸 Screenshots
 
-> Add screenshots here after building the app.
-
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/2fcb3717-9c62-4fc3-9f0f-177b2ecf4411" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/7b1694cc-3748-4b8f-9e89-583bc2588946" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/1c01753e-ba44-4940-97e2-8f6d31bc9cfc" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/67e74ab6-d492-46fd-a824-25a90611c274" width="200"/></td>
+  </tr>
+  <tr>
+    <td align="center">City List</td>
+    <td align="center">Search</td>
+    <td align="center">Favourites</td>
+    <td align="center">City Detail</td>
+  </tr>
+</table>
 ---
 
 ## ✨ Features
