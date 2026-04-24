@@ -43,6 +43,8 @@ class WeatherRepositoryImpl @Inject constructor(
             }.awaitAll().filterNotNull()
         }
 
+        if (entities.isEmpty()) throw Exception("No cities found")
+
         dao.upsertAll(entities)
     }
 
