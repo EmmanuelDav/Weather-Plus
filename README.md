@@ -18,9 +18,9 @@ background notifications.
   </tr>
   <tr>
     <td align="center">City List</td>
+    <td align="center">City Details</td>
     <td align="center">Search</td>
-    <td align="center">Favourites</td>
-    <td align="center">City Detail</td>
+    <td align="center">Notification</td>
   </tr>
 </table>
 ---
