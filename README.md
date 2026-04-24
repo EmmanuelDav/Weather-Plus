@@ -39,7 +39,7 @@ app/
 ├── domain/
 │   ├── model/          # Pure Kotlin domain models
 │   └── repository/     # Repository interface
-├── presentation/
+├── ui/
 │   ├── citylist/       # City list screen, ViewModel, UiState, Intent
 │   ├── citydetail/     # City detail screen, ViewModel, UiState
 │   ├── navigation/     # Type-safe NavRoutes and NavGraph
