@@ -249,7 +249,7 @@ WeatherPlus uses a **Room-first offline strategy**:
 
 **Emmanuel Iyke**
 Senior Android Engineer
-[GitHub](https://github.com/yourusername) • [LinkedIn](https://linkedin.com/in/yourusername)
+[GitHub](https://github.com/emmanueldav) • [LinkedIn](https://linkedin.com/in/emmanueldav)
 
 ---
 
