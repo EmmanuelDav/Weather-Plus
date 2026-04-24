@@ -89,6 +89,7 @@ class WeatherRepositoryImplTest {
             api.getCityWeather(any(), any(), any())
         } throws Exception("Network error")
 
+
         val result = repository.refreshCities()
 
         assertTrue(result.isFailure)
@@ -97,6 +98,7 @@ class WeatherRepositoryImplTest {
     @Test
     fun `toggleFavorite calls dao setFavorite`() = runTest {
         repository.toggleFavorite(cityId = 1, isFavorite = true)
+
 
         coVerify { dao.setFavorite(cityId = 1, isFavorite = true) }
     }
