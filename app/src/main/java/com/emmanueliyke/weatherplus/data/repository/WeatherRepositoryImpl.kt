@@ -7,6 +7,9 @@ import com.emmanueliyke.weatherplus.data.remote.mapper.toDomain
 import com.emmanueliyke.weatherplus.data.remote.mapper.toEntity
 import com.emmanueliyke.weatherplus.domain.model.CityWeather
 import com.emmanueliyke.weatherplus.domain.repository.WeatherRepository
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -22,21 +25,22 @@ class WeatherRepositoryImpl @Inject constructor(
         }
 
     override suspend fun refreshCities(): Result<Unit> = runCatching {
-        val response = api.getCitiesWeather(
-            ids = CityConstants.CITY_IDS_PARAM,
-            apiKey = CityConstants.API_KEY
-        )
+        val favoriteIds = dao.getFavoriteCityIds().toSet()
 
-        val currentFavorites = dao.observeAll()
-            .map { it.filter { entity -> entity.isFavorite }.map { entity -> entity.cityId } }
-            .let { flow ->
-                var result = emptyList<Int>()
-                flow.collect { result = it }
-                result
-            }
-
-        val entities = response.list.map { dto ->
-            dto.toEntity(isFavorite = dto.id in currentFavorites)
+        val entities = coroutineScope {
+            CityConstants.CITY_IDS.map { cityId ->
+                async {
+                    try {
+                        val dto = api.getCityWeather(
+                            cityId = cityId,
+                            apiKey = CityConstants.API_KEY
+                        )
+                        dto.toEntity(isFavorite = dto.id in favoriteIds)
+                    } catch (e: Exception) {
+                        null
+                    }
+                }
+            }.awaitAll().filterNotNull()
         }
 
         dao.upsertAll(entities)

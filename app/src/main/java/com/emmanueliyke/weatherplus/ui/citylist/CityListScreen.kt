@@ -48,7 +48,7 @@ fun CityListScreen(
             TopAppBar(
                 title = {
                     Text(
-                        text = "WeatherNow",
+                        text = "WeatherPlus",
                         color = Color.White,
                         fontSize = 22.sp,
                         fontWeight = FontWeight.Bold

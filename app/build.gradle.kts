@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -12,6 +14,8 @@ android {
     namespace = "com.emmanueliyke.weatherplus"
     compileSdk = 36
 
+
+
     defaultConfig {
         applicationId = "com.emmanueliyke.weatherplus"
         minSdk = 25
@@ -22,10 +26,16 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
 
+        val localProperties = Properties()
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            localPropertiesFile.inputStream().use { localProperties.load(it) }
+        }
+
         buildConfigField(
             "String",
             "WEATHER_API_KEY",
-            "\"${project.findProperty("WEATHER_API_KEY") ?: ""}\""
+            "\"${localProperties.getProperty("WEATHER_API_KEY") ?: ""}\""
         )
     }
 

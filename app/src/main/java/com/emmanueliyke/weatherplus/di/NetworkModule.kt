@@ -37,7 +37,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
-        Retrofit.Builder().baseUrl("").client(okHttpClient).addConverterFactory(
+        Retrofit.Builder().baseUrl("https://api.openweathermap.org/data/2.5/").client(okHttpClient).addConverterFactory(
             GsonConverterFactory.create()
         ).build()
 
