@@ -252,7 +252,11 @@ Senior Android Engineer
 [GitHub](https://github.com/emmanueldav) • [LinkedIn](https://linkedin.com/in/emmanueldav)
 
 ---
+## 📦 Download & Install WeatherPlus
 
+[![Download APK](https://img.shields.io/badge/Download%20APK-WeatherPlus%20v1.0.0-brightgreen?style=for-the-badge&logo=android)](https://github.com/EmmanuelDav/Weather-Plus/releases/download/v1.0.0/app-debug.apk)
+
+---
 ## 📄 License
 
 ```
